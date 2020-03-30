@@ -1,10 +1,11 @@
 package pers.xy.main;
 
-import pers.xy.main.classloader.RunClassLoaderTest;
-import pers.xy.main.generictype.RunGenericTypeTest;
+import org.quartz.SchedulerException;
+import pers.xy.main.delegate.RunDelegateTest;
+import pers.xy.main.quartz.MyScheduler;
 
 public class MainProjectApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //RunJdkProxyTest.run();
         //OverrideTestRun.run();
         //RunCglibTest.run();
@@ -12,6 +13,8 @@ public class MainProjectApplication {
         //RunCglibTest.runFixed();
 //        RunGenericTypeTest.run();
 //        RunGenericTypeTest.runMutil();
-        RunClassLoaderTest.execute();
+//        RunClassLoaderTest.execute();
+        //MyScheduler.exec();
+        RunDelegateTest.exec();
     }
 }

@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 @Aspect
 @Component
 public class AspectAdvice {
-    @Pointcut(value = "@annotation(learn.aop.AspectInvocation)")
+    @Pointcut(value = "@annotation(pers.xy.main.aop.AspectInvocation)")
     public void pointCut() {
     }
 
