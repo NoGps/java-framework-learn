@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  pers.xy.common.AutoConfiguration
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#  pers.xy.common.AutoConfiguration

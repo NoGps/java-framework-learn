@@ -20,7 +20,6 @@ public class ZkConfig {
         this.zkProps = zkProps;
     }
 
-    @Bean
     public CuratorFramework curatorFramework() {
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(zkProps.getTimeout(), zkProps.getRetry());
         CuratorFramework client = CuratorFrameworkFactory
