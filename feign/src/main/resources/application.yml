@@ -1,0 +1,14 @@
+
+
+paascloud:
+  oauth2:
+    client:
+      id: test
+      accessTokenUrl: 127.0.13.37:/auth/v1/login
+      clientId: test
+      clientSecret: YWRtaW46Y2FzYQ==
+      clientAuthenticationScheme: header
+
+
+server:
+  port: 8989
