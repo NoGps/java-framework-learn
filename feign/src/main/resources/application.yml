@@ -1,14 +1,11 @@
-
-
 paascloud:
   oauth2:
     client:
       id: test
-      accessTokenUrl: 127.0.13.37:/auth/v1/login
-      clientId: test
-      clientSecret: YWRtaW46Y2FzYQ==
+      accessTokenUrl: http://172.0.13.37:8000/auth/v1/login
+      clientId: admin
+      clientSecret: casa
       clientAuthenticationScheme: header
-
 
 server:
   port: 8989

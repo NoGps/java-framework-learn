@@ -8,11 +8,26 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.client.ClientHttpRequest;
+import org.springframework.http.client.ClientHttpRequestInitializer;
 import org.springframework.http.client.Netty4ClientHttpRequestFactory;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.token.AccessTokenProvider;
+import org.springframework.security.oauth2.client.token.AccessTokenProviderChain;
+import org.springframework.security.oauth2.client.token.OAuth2AccessTokenSupport;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsAccessTokenProvider;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeAccessTokenProvider;
+import org.springframework.security.oauth2.client.token.grant.implicit.ImplicitAccessTokenProvider;
+import org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordAccessTokenProvider;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableConfigurationProperties(Oauth2ClientProperties.class)
@@ -54,9 +69,12 @@ public class OAuth2FeignAutoConfiguration {
     @Bean("paascloudOAuth2RestTemplate")
     public OAuth2RestTemplate oAuth2RestTemplate() {
         final OAuth2RestTemplate oAuth2RestTemplate = new OAuth2RestTemplate(resourceDetails(), new DefaultOAuth2ClientContext());
-        oAuth2RestTemplate.setRequestFactory(new Netty4ClientHttpRequestFactory());
-        return oAuth2RestTemplate;
+        OAuth2AccessTokenSupport provider =  new ClientCredentialsAccessTokenProvider();
+        provider.setRequestFactory(new IdentityClientHttpRequestFactory());
+        AccessTokenProvider accessTokenProvider = new AccessTokenProviderChain(Arrays.<AccessTokenProvider> asList((AccessTokenProvider)provider));
+        oAuth2RestTemplate.setAccessTokenProvider(accessTokenProvider);
 
+        return oAuth2RestTemplate;
     }
 
     /**
