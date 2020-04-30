@@ -1,6 +1,7 @@
 package pers.xy.main;
 
 import org.quartz.SchedulerException;
+import pers.xy.main.classloader.RunClassLoaderTest;
 import pers.xy.main.delegate.RunDelegateTest;
 import pers.xy.main.quartz.MyScheduler;
 
@@ -15,6 +16,7 @@ public class MainProjectApplication {
 //        RunGenericTypeTest.runMutil();
 //        RunClassLoaderTest.execute();
         //MyScheduler.exec();
-        RunDelegateTest.exec();
+        //RunDelegateTest.exec();
+        RunClassLoaderTest.execute();
     }
 }

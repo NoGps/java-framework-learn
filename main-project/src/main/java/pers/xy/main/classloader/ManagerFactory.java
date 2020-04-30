@@ -12,7 +12,7 @@ public class ManagerFactory {
     private static final Map<String, LoadInfo> loadTimeMap = new HashMap();
 
     /** 要加载的类的 classpath */
-    public static final String CLASS_PATH = "F:\\project\\java-framework-learn\\my-manager-plugin\\target\\classes\\";
+    public static final String CLASS_PATH = "Z:\\project\\java-framework-learn\\my-manager-plugin\\target\\classes\\";
 
     /** 实现热加载的类的全名称(包名+类名 ) */
     public static final String MY_MANAGER = "pers.xy.plugin.mymanager.MyManager";

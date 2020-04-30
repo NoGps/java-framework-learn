@@ -5,4 +5,10 @@ public class RunClassLoaderTest {
         Thread thread = new Thread(new ClassMonitor());
         thread.start();
     }
+
+    public static void currentClassLoaderTest(){
+        ClassLoader classLoader = new CurrentClassLoader();
+        Thread.currentThread().setContextClassLoader(classLoader);
+        CurrentLoadObj obj = new CurrentLoadObj();
+    }
 }

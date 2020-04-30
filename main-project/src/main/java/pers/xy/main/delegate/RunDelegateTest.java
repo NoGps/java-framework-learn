@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class RunDelegateTest {
     public static void exec() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        EventHandler<TestEvent> handler = new EventHandler<TestEvent>();
+        EventHandle<TestEvent> handler = new EventHandle<TestEvent>();
         handler.addListen(new Consumer(), "test", TestEvent.class);
         handler.invoke(new TestEvent());
     }

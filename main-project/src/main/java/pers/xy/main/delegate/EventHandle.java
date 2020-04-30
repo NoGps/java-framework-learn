@@ -5,13 +5,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventHandler<T extends Event> {
+public class EventHandle<T extends Event> {
 
     private List<Object> objects = new ArrayList<Object>();
     private List<String> methodNames = new ArrayList<String>();
     private List<Class> paramTypesList = new ArrayList<Class>();
 
-    public EventHandler(){
+    public EventHandle(){
 
     }
 
